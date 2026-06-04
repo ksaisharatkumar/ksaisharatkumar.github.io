@@ -51,11 +51,11 @@ nav{
   padding:0 32px;height:56px;
 }
 .nav-logo{
-  font-family:var(--mono);font-size:12px;
-  color:var(--gold-dk);letter-spacing:.5px;text-decoration:none;
-  font-weight:500;
+  font-family:var(--sans);font-size:14px;
+  color:var(--ink2);letter-spacing:.3px;text-decoration:none;
+  font-weight:600;
 }
-.nav-logo em{color:var(--accent);font-style:normal;}
+.nav-logo em{color:var(--gold-dk);font-style:italic;font-family:var(--serif);}
 .nav-links{display:flex;list-style:none;}
 .nav-links a{
   font-family:var(--mono);font-size:11px;
@@ -104,7 +104,7 @@ nav{
 #hero{
   min-height:100vh;display:flex;align-items:center;
   position:relative;overflow:hidden;
-  padding:80px 32px 60px;
+  padding:110px 32px 60px;
   background:var(--bg);
 }
 /* Subtle ruled lines */
@@ -231,7 +231,7 @@ h1.hero-name .ln{
 }
 .ticker-track{
   display:flex;
-  animation:ticker 40s linear infinite;
+  animation:ticker 20s linear infinite;
   white-space:nowrap;
 }
 .tick{
@@ -560,6 +560,51 @@ footer span{color:rgba(245,240,232,.7);}
 @keyframes pulse{
   0%,100%{opacity:1;}50%{opacity:.3;}
 }
+
+/* ── CERT BAR ── */
+.cert-bar{
+  background:var(--accent);
+  padding:7px 24px;
+  display:flex;align-items:center;
+  justify-content:center;gap:10px;
+  flex-wrap:wrap;
+  position:fixed;top:56px;width:100%;z-index:199;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.cb-badge{
+  display:flex;align-items:center;gap:6px;
+  padding:3px 12px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  transition:background .2s;
+}
+.cb-badge:hover{background:rgba(255,255,255,.12);}
+.ms-sq{
+  width:12px;height:12px;
+  display:grid;grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;gap:1px;flex-shrink:0;
+}
+.ms-sq span:nth-child(1){background:#F25022;}
+.ms-sq span:nth-child(2){background:#7FBA00;}
+.ms-sq span:nth-child(3){background:#00A4EF;}
+.ms-sq span:nth-child(4){background:#FFB900;}
+.anth-dot{
+  width:12px;height:12px;border-radius:50%;
+  background:#CC785C;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.anth-dot svg{width:7px;height:7px;fill:white;}
+.cb-text{
+  font-family:var(--mono);font-size:9px;
+  color:rgba(255,255,255,.8);letter-spacing:.5px;
+  white-space:nowrap;
+}
+@media(max-width:768px){
+  .cert-bar{gap:6px;padding:6px 12px;top:56px;}
+  .cb-text{font-size:8px;}
+  .cb-badge{padding:3px 8px;}
+}
 </style>
 </head>
 <body>
@@ -567,7 +612,7 @@ footer span{color:rgba(245,240,232,.7);}
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="#hero">&gt;&nbsp;<em>SSK</em>.portfolio()</a>
+    <a class="nav-logo" href="#hero">Sai Sharat <em>Khambampati</em></a>
     <ul class="nav-links" id="navlinks">
       <li><a href="#about" onclick="closeMenu()">About</a></li>
       <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
@@ -584,6 +629,37 @@ footer span{color:rgba(245,240,232,.7);}
     </div>
   </div>
 </nav>
+
+
+<!-- CERT BAR -->
+<div class=cert-bar>
+  <div class=cb-badge>
+    <div class=ms-sq><span></span><span></span><span></span><span></span></div>
+    <div class=cb-text>Fabric Analytics Engineer &middot; Associate</div>
+  </div>
+  <div class=cb-badge>
+    <div class=ms-sq><span></span><span></span><span></span><span></span></div>
+    <div class=cb-text>Fabric Data Engineer &middot; Associate</div>
+  </div>
+  <div class=cb-badge>
+    <div class=ms-sq><span></span><span></span><span></span><span></span></div>
+    <div class=cb-text>Azure Data Engineer &middot; Associate</div>
+  </div>
+  <div class=cb-badge>
+    <div class=ms-sq><span></span><span></span><span></span><span></span></div>
+    <div class=cb-text>SC-401 &middot; Compliance</div>
+  </div>
+  <div class=cb-badge>
+    <div class=ms-sq><span></span><span></span><span></span><span></span></div>
+    <div class=cb-text>Microsoft Certified &middot; Professional</div>
+  </div>
+  <div class=cb-badge>
+    <div class=anth-dot>
+      <svg viewBox="0 0 24 24"><path d="M13.8 4L19 20h-3.5l-1-3H9.5l-1 3H5L10.2 4h3.6zm-1.8 4.5L10.4 14h3.2L12 8.5z"/></svg>
+    </div>
+    <div class=cb-text>Anthropic &middot; CCA-F</div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -602,11 +678,7 @@ footer span{color:rgba(245,240,232,.7);}
         <strong>15+ Years</strong> &nbsp;&#183;&nbsp; Microsoft Fabric &nbsp;&#183;&nbsp; Azure &nbsp;&#183;&nbsp; Snowflake &nbsp;&#183;&nbsp; Data Vault 2.0<br/>
         Creator of <strong>Soamed AI</strong> &nbsp;&#183;&nbsp; <strong>HiFi Finances</strong> &nbsp;&#183;&nbsp; <strong>PassForge</strong>
       </div>
-      <div class="hero-tags">
-        <span class="hero-tag">Microsoft Certified Fabric Engineer</span>
-        <span class="hero-tag">Azure Data Engineer Associate</span>
-        <span class="hero-tag">SC-401 Certified</span>
-      </div>
+
       <div class="hero-ctas">
         <a href="#projects" class="btn-ink">View Projects &#8594;</a>
         <a href="#contact" class="btn-outline">Contact Me</a>
@@ -750,6 +822,7 @@ footer span{color:rgba(245,240,232,.7);}
     <div class="st">Credentials &amp; <em>Certifications</em></div>
     <div class="cert-grid">
       <div class="cert"><div class="cert-ico">&#127885;</div><div><div class="cert-name">Fabric Analytics Engineer Associate (DP-600)</div><div class="cert-meta">MICROSOFT CERTIFIED &nbsp;&#183;&nbsp; 2024</div></div></div>
+      <div class="cert"><div class="cert-ico">&#127885;</div><div><div class="cert-name">Fabric Data Engineer Associate (DP-700)</div><div class="cert-meta">MICROSOFT CERTIFIED</div></div></div>
       <div class="cert"><div class="cert-ico">&#127885;</div><div><div class="cert-name">Azure Data Engineer Associate (DP-203)</div><div class="cert-meta">MICROSOFT CERTIFIED</div></div></div>
       <div class="cert"><div class="cert-ico">&#127885;</div><div><div class="cert-name">SC-401: Information Protection &amp; Compliance</div><div class="cert-meta">MICROSOFT CERTIFIED</div></div></div>
       <div class="cert"><div class="cert-ico">&#127885;</div><div><div class="cert-name">Microsoft Certified Professional (MCP)</div><div class="cert-meta">MICROSOFT CERTIFIED</div></div></div>
@@ -887,7 +960,7 @@ var KB = [
   {k:["ssis", "etl", "pipeline", "ingestion"],a:"ETL architecture is the deepest domain — 15 years spanning SSIS, ADF, Fabric Pipelines, Attunity, and Snowflake ingestion. Sai architected an RFC 2119-compliant SSIS framework for Enterprise Products with 4+ major GO-LIVE production releases."},
   {k:["locat", "relocat", "remote", "hybrid", "onsite", "texas"],a:"Sai is based in <b>Texas, USA</b>. Open to remote, hybrid, or onsite roles and willing to discuss relocation for the right opportunity."},
   {k:["educat", "degree", "university", "masters", "ms"],a:"Sai holds an <b>M.S. in Electrical Engineering from UT San Antonio (2011)</b> and a B.Tech in Electronics and Communication Engineering from JNT University, India (2009)."},
-  {k:["certif", "certified", "dp-600", "dp-203", "sc-401", "cca"],a:"Sai holds: <b>Microsoft Certified Fabric Analytics Engineer Associate (DP-600)</b>, Azure Data Engineer Associate (DP-203), SC-401 Information Protection and Compliance, Microsoft Certified Professional (MCP), and Anthropic CCA-F AI Fluency certification."},
+  {k:["certif", "certified", "dp-600", "dp-203", "sc-401", "cca"],a:"Sai holds: <b>Microsoft Certified Fabric Analytics Engineer Associate (DP-600)</b>, <b>Fabric Data Engineer Associate (DP-700)</b>, Azure Data Engineer Associate (DP-203), SC-401 Information Protection and Compliance, Microsoft Certified Professional (MCP), and Anthropic CCA-F AI Fluency certification."},
   {k:["client", "industry", "domain", "healthcare", "retail", "oil", "gas", "finance", "supply"],a:"Sai has worked across <b>retail</b> (Albertsons), <b>oil and gas</b> (Enterprise Products, Exterran), <b>healthcare</b> (Methodist Hospitals), <b>finance</b> (JP Morgan, Selene Finance), <b>education</b> (Cambium, University of Illinois Foundation), supply chain, and non-profit sectors."},
   {k:["contact", "email", "phone", "reach", "interview", "call"],a:"Reach Sai at <b>saisharat2906@gmail.com</b> or call <b>+1 210-216-8499</b>. Typically responds within 24 hours and happy to schedule a call or interview."}
 ];
